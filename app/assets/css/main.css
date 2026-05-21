@@ -1,0 +1,411 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+
+  background:
+    linear-gradient(
+      rgba(2, 6, 23, 0.38),
+      rgba(15, 23, 42, 0.48)
+    ),
+    url('/images/sict.jpg');
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  color: #e5e7eb;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(to bottom, black, transparent 80%);
+}
+
+.glass-card {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    145deg,
+    rgba(15, 23, 42, 0.88),
+    rgba(15, 23, 42, 0.58)
+  );
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  box-shadow:
+    0 24px 80px rgba(0, 0, 0, 0.38),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(22px);
+  border-radius: 26px;
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(34, 211, 238, 0.34);
+  box-shadow:
+    0 30px 90px rgba(0, 0, 0, 0.48),
+    0 0 35px rgba(34, 211, 238, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.glass-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,0.12),
+    transparent 28%,
+    transparent 70%,
+    rgba(255,255,255,0.04)
+  );
+  opacity: 0.45;
+}
+
+.sensor-good,
+.sensor-warning,
+.sensor-danger,
+.sensor-offline {
+  border-width: 1px;
+  border-style: solid;
+}
+
+.sensor-offline {
+  color: #94a3b8;
+  background: rgba(148, 163, 184, 0.08);
+  border-color: rgba(148, 163, 184, 0.22);
+}
+
+.sensor-good {
+  color: #22c55e;
+  background: rgba(34, 197, 94, 0.12);
+  border-color: rgba(34, 197, 94, 0.36);
+}
+
+.sensor-warning {
+  color: #facc15;
+  background: rgba(250, 204, 21, 0.12);
+  border-color: rgba(250, 204, 21, 0.36);
+}
+
+.sensor-danger {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.12);
+  border-color: rgba(239, 68, 68, 0.36);
+}
+
+.switch {
+  width: 58px;
+  height: 32px;
+  border-radius: 999px;
+  background: rgba(51, 65, 85, 0.9);
+  position: relative;
+  cursor: pointer;
+  transition: 0.25s ease;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+}
+
+.switch.active {
+  background: linear-gradient(135deg, #06b6d4, #22c55e);
+  box-shadow: 0 0 22px rgba(34, 211, 238, 0.3);
+}
+
+.switch::after {
+  content: "";
+  width: 24px;
+  height: 24px;
+  background: #ffffff;
+  border-radius: 999px;
+  position: absolute;
+  top: 3px;
+  left: 4px;
+  transition: 0.25s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+.switch.active::after {
+  transform: translateX(25px);
+}
+
+button {
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease,
+    background 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+input {
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+input:focus {
+  box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.12);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #020617;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+:root {
+  color-scheme: dark;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    linear-gradient(
+      rgba(2, 6, 23, 0.82),
+      rgba(15, 23, 42, 0.88)
+    ),
+    url('/images/sict.jpg');
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  color: #e5e7eb;
+}
+
+/* LIGHT MODE - soft contrast */
+body.light-mode {
+  color-scheme: light;
+
+  background:
+    linear-gradient(
+      rgba(255,255,255,0.72),
+      rgba(241,245,249,0.82)
+    ),
+    url('/images/sict.jpg');
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  color: #0f172a;
+}
+body.light-mode .glass-card {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.82),
+    rgba(226, 232, 240, 0.72)
+  );
+  border: 1px solid rgba(15, 23, 42, 0.16);
+  box-shadow:
+    0 18px 55px rgba(15, 23, 42, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+body.light-mode .glass-card:hover {
+  border-color: rgba(14, 116, 144, 0.34);
+  box-shadow:
+    0 24px 70px rgba(15, 23, 42, 0.2),
+    0 0 30px rgba(14, 165, 233, 0.12);
+}
+
+/* Tailwind text overrides */
+body.light-mode .text-white {
+  color: #0f172a !important;
+}
+
+body.light-mode .text-slate-400 {
+  color: #475569 !important;
+}
+
+body.light-mode .text-slate-300 {
+  color: #334155 !important;
+}
+
+body.light-mode .text-cyan-300 {
+  color: #0891b2 !important;
+}
+
+body.light-mode .text-red-300 {
+  color: #dc2626 !important;
+}
+
+body.light-mode .text-green-300 {
+  color: #15803d !important;
+}
+
+body.light-mode .text-yellow-300 {
+  color: #a16207 !important;
+}
+
+/* Sensor progress/background bars */
+body.light-mode .bg-slate-800,
+body.light-mode .bg-slate-900,
+body.light-mode .bg-slate-700 {
+  background-color: #cbd5e1 !important;
+}
+
+/* Inputs/buttons */
+body.light-mode input {
+  background: rgba(255, 255, 255, 0.85);
+  color: #0f172a;
+  border-color: rgba(15, 23, 42, 0.16);
+}
+
+body.light-mode .switch {
+  background: rgba(148, 163, 184, 0.75);
+  border-color: rgba(15, 23, 42, 0.18);
+}
+
+/* Chart area text if used */
+body.light-mode svg text {
+  fill: #334155;
+}
+.theme-toggle {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 50;
+  border-radius: 999px;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  background: rgba(15, 23, 42, 0.78);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+}
+
+body.light-mode .theme-toggle {
+  color: #0f172a;
+  background: rgba(255, 255, 255, 0.82);
+  border-color: rgba(15, 23, 42, 0.16);
+}
+body.light-mode .border-slate-700\/40 {
+  border-color: rgba(15, 23, 42, 0.14) !important;
+}
+
+/* ── Sidebar ── */
+.sidebar-glass {
+  background: linear-gradient(
+    180deg,
+    rgba(2, 6, 23, 0.97) 0%,
+    rgba(15, 23, 42, 0.96) 100%
+  );
+  border-right: 1px solid rgba(148, 163, 184, 0.10);
+  backdrop-filter: blur(24px);
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #64748b;
+  text-decoration: none;
+  transition:
+    background 0.18s ease,
+    color 0.18s ease;
+  border: 1px solid transparent;
+}
+
+.nav-link:hover {
+  background: rgba(148, 163, 184, 0.07);
+  color: #cbd5e1;
+  transform: none;
+}
+
+.nav-link-active {
+  background: rgba(34, 211, 238, 0.10);
+  color: #22d3ee;
+  border-color: rgba(34, 211, 238, 0.18);
+}
+
+.nav-link-active:hover {
+  background: rgba(34, 211, 238, 0.14);
+  color: #22d3ee;
+  border-color: rgba(34, 211, 238, 0.25);
+}
+
+/* Light mode sidebar */
+body.light-mode .sidebar-glass {
+  background: linear-gradient(
+    180deg,
+    rgba(248, 250, 252, 0.97) 0%,
+    rgba(241, 245, 249, 0.95) 100%
+  );
+  border-right: 1px solid rgba(15, 23, 42, 0.10);
+}
+
+body.light-mode .nav-link {
+  color: #64748b;
+}
+
+body.light-mode .nav-link:hover {
+  background: rgba(15, 23, 42, 0.05);
+  color: #0f172a;
+}
+
+body.light-mode .nav-link-active {
+  background: rgba(8, 145, 178, 0.10);
+  color: #0891b2;
+  border-color: rgba(8, 145, 178, 0.22);
+}
+
+body.light-mode .nav-link-active:hover {
+  background: rgba(8, 145, 178, 0.15);
+  color: #0891b2;
+}
+
+body.light-mode .rounded-2xl.border-slate-700\/40 {
+  border-color: rgba(15, 23, 42, 0.12) !important;
+  background: rgba(241, 245, 249, 0.7) !important;
+}

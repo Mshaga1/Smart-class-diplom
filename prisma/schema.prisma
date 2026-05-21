@@ -1,0 +1,42 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  email     String   @unique
+  password  String
+
+  role      String   @default("user")
+
+  createdAt DateTime @default(now())
+}
+
+model Classroom {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  slug        String   @unique
+  description String?
+  floor       Int?
+  capacity    Int?
+  isActive    Boolean  @default(false)
+  createdAt   DateTime @default(now())
+}
+
+model SensorReading {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  temperature Float
+  humidity    Float
+  airQuality  Int
+  fireValue   Int
+  light       Int?
+  mode        String   @default("simulated")
+  classroomId String?  @db.ObjectId
+  createdAt   DateTime @default(now())
+}
