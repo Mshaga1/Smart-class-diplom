@@ -1,6 +1,6 @@
 export default defineNuxtConfig({
   compatibilityDate: '2026-04-29',
-
+  ssr: true,
   modules: [
     '@pinia/nuxt',
     '@nuxtjs/tailwindcss'
@@ -19,9 +19,6 @@ export default defineNuxtConfig({
     typeCheck: true
   },
 
-  nitro: {
-    preset: 'node-server'
-  },
   
   
 })
